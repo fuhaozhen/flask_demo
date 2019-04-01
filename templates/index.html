@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../static/js/bootstrap.css"/>
+		<script src="../static/js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		/* top */
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		div{
+			display: block;
+		}
+		body{
+			font-family: "微软雅黑";
+			font-size:14px;
+			color: #666;
+			
+		}
+		div.top{
+			height:40px;
+			background-color:#323232;
+			line-height:40px;
+		}
+		a.phone{
+			line-height: 52px;
+			float: left;
+			height:40px;
+		}
+		a.kefu{
+			float: left;
+			font-size: 15px;
+			margin-left:11px;
+		}
+		div.content{
+			width:1100px;
+			margin:0 auto;
+		}
+		ul.flu{
+			float: left;
+		}
+		ul.flu>li{
+			list-style: none;
+			float:left;
+			margin-left:11px;
+			padding-right:11px;
+			border-right:1px solid #23B7B7;	
+		}
+		ul.flu>li a{
+			display: block;
+			text-decoration: none;
+			color:#b4b5ba;
+		}
+		ul.flu>li a:hover{
+			text-decoration: underline;
+		}
+		div.top .fr{
+			float:right;
+		}
+		div.top .fr a{
+			width:78px;
+			height:24px;
+			display: block;
+			border:1px solid #23B7B7;
+			float: left;
+			line-height: 24px;
+			text-align: center;
+			margin-top:7px;
+			text-decoration: none;
+			color:#23B7B7;
+		}
+		div.top .fr a:hover{
+			background-color:#23B7B7;
+			color: white;
+		}
+		
+		/* nav */
+		div.nav{
+			height:100px;
+			background-color:#fff;
+			border-bottom:1px solid #23B7B7;
+		}
+		div.s1_content img{
+			margin-top: 20px;
+		}
+		div.s1_content{
+			width:1100px;
+			margin: 0 auto;
+			clear:both;
+		}
+		div.menu{
+			float:right;
+			height:100px;
+		}
+		div.menu ul li{
+			float:left;
+			list-style: none;
+			padding-top: 34px;
+			color:#666666;
+			/* width:110px; */
+			text-align: center;
+			line-height: 30px;
+			margin-right: 60px;
+		}
+		div.menu ul li a{
+			text-decoration: none;
+			color:#000;
+			font-size:20px;
+		}
+		div.menu ul li a:hover{
+			color:#23B7B7;
+			border-bottom: 2px solid #23B7B7;
+			padding-bottom:10px;	
+		}
+		
+		/* content */
+		div.s1_content{
+			width: 1100px;
+			margin: 0 auto;
+			clear: both;
+		}
+		ul.xiang_mu{
+			margin:30px 0 auto;
+			overflow: hidden;
+			/* margin: 30px 0; */
+			background: #fff;
+			position: relative;
+			list-style: none;
+		}
+		.green-panel{
+			width: 1024px;
+			margin-top: -75px;
+			position: relative;
+			z-index: 10;
+			margin-bottom: 80px;
+			margin-left: 20px;
+		}
+		.green-panel>a{
+			text-decoration: none;
+			display: block;
+			width: 500px;
+			height: 220px;
+			border-radius: 2px;
+			background-size: 100% 100%;
+			padding: 45px 35px;
+			color: #fff;
+			background-color: #23B7B7;
+			transition: all 0.5s ease-in-out;
+			box-shadow: 0 15px 30px 0 rgba(0,192,107,.3);
+		}
+		.green-panel>a:hover{
+			transform: scale(1.1,1.1);
+		}
+		.green-panel>a h3{
+			font-size: 24px;
+			font-weight: 400;
+			line-height: 1;
+			margin-bottom: 30px;
+		}
+		.green-panel>a p{
+			font-size: 12px;
+			line-height: 2;
+		}
+		
+		.data{
+			margin-bottom: 80px;
+			width: 1100px;
+		}
+		.data-item{
+			list-style: none;
+			float: left;
+			width: 226px;
+			color: #333;
+		}
+		.data-item h3{
+			font-size: 30px;
+			line-height: 1;
+			margin-bottom: 20px;
+			font-weight: 400;
+		}
+		.data-item p{
+			font-size: 13px;
+			line-height: 24px;
+		}
+		.data-item:first-of-type{
+			margin-left: 30px;
+			margin-right: 30px;
+		}
+		.data-item:nth-of-type(2){
+			margin-right: 65px;
+		}
+		.data-item:nth-of-type(3){
+			margin-right: 70px;
+		}
+		.data-item:last-of-type{
+			width: 180px;
+		}
+		.image-panel-item{
+			margin-left: 20px;
+			float: left;
+			width: 244px;
+			height: 450px;
+			margin-right: 1px;
+			padding-top: 230px;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			padding-left: 20px;
+			/* opacity: 0.9; */
+			color: #fff;
+			border-radius: 2px;
+		}
+		.image-panel-item:first-of-type{
+			background-image: url(../static/images/zi_jia.png);
+		}
+		.image-panel-item:nth-of-type(2){
+			background-image:url(../static/images/qing_lv.png)
+		}
+		.image-panel-item:nth-of-type(3){
+			background-image: url(../static/images/shang_wu.png);
+		}
+		.image-panel-item:last-of-type{
+			margin-right: 0;
+			background-image: url(../static/images/ge_xing.png);
+		}
+		.image-panel-item h3{
+			font-size: 24px;
+			font-weight: 400;
+			line-height: 1;
+			margin-bottom: 30px;
+		}
+		.image-panel-item p{
+			font-size: 12px;
+			line-height: 20px;
+		}
+		
+		.server{
+			height: 685px;
+			background-color: #f9f9f9;
+			margin-top: -150px;
+			color: #333;
+			padding-top: 230px;
+			margin-bottom: 70px;
+		}
+		.server-box{
+			position: relative;
+			
+		}
+		.split{
+			width: 25px;
+			height: 4px;
+			border-radius: 2px;
+			margin: 0 auto;
+		}
+		.server-title{
+			text-align: center;
+			font-weight: 400;
+			font-size: 24px;
+			margin: 20px 10px 76px;
+		}
+		.server-item{
+			float: left;
+			width: 400px;
+			padding-left: 90px;
+			position: relative;
+			margin-bottom: 74px;
+			margin-left: 70px;
+		}
+		.server-item-icon-1{
+			background-image:url(../static/images/panel1.png) ;
+		}
+		.server-item-icon-2{
+			background-image:url(../static/images/panel2.png) ;
+		}
+		.server-item-icon-3{
+			background-image:url(../static/images/panel3.png) ;
+		}
+		.server-item-icon-4{
+			background-image:url(../static/images/panel4.png) ;
+		}
+		.server-item-icon{
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-size: 100% 100%;
+			width: 70px;
+			height: 70px;
+			background-repeat: no-repeat;
+		}
+		.server-item h4{
+			font-size: 15px;
+			line-height: 1;
+			margin-bottom: 20px;
+		}
+		.server-item p{
+			font-size: 12px;
+			line-height: 24px;
+		}
+		.server-item:nth-of-type(odd){
+			margin-left: 190px;
+		}
+		/* foot */
+		div.s1_footer{
+			height: 150px;
+			width: 100%;
+			background: #323232;
+		}
+		div.foot_top{
+			margin-left: 11px;
+			height: 100px;
+			padding-top: 10px;
+		}
+		div.s1_top{
+			padding-top: 10px;
+		}
+		div.clear{
+			clear: both;
+			overflow: hidden;
+			height: 1px;
+			margin-top: -1px;
+			font-size: 0;
+		}
+		div.s1_lian_jie ul{
+			height: 80px;
+			border-top: 1px solid gray;
+			overflow: hidden;
+			margin-top: 10px;
+			margin-bottom: 0px;
+		}
+		div.s1_lian_jie ul li{
+			list-style: none;
+			float: left;
+			margin-right: 15px;
+			line-height: 25px;
+			margin-top: 10px;
+		}
+		div.s1_lian_jie ul li a{
+			color:#b4b5ba;
+		}
+		
+		div.s1_top span{
+			margin-right: 15px;
+		}
+	</style>
+	</head>
+	<body>
+		<!-- top -->
+		<div class="top">
+			<div class="content">
+				<div class="fl">
+					<ul class="flu">
+						<li>
+							<a class="kefu" href="#">客服服务热线 400-666-6688</a>
+						</li>
+						<li>
+							<a href="#">用户中心</a>
+						</li>
+						<li>
+							<a href="#">积分商城</a>
+						</li>
+					</ul>
+				</div>
+				<div class="fr">
+					{% if userinfo %}
+						<a style="color: #b4b5ba;">您好:{{userinfo}}</a>
+						<a href="/quit">退出</a>
+						
+					{% else %}
+						<a href="/login">登录</a>
+						<a href="/register">注册</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<!-- nav -->
+		<div class="nav">
+			<div class="s1_content">
+				<img src="../static/images/商标.png" alt>
+			
+				<div class="menu">
+					<ul>
+						<li><a href="/" style="color:#23B7B7;">首页</a></li>
+						<li><a href="./short.html">短租</a></li>
+						<li><a href="./login.html">长租</a></li>
+						<!-- <li><a href="#">车型查询</a></li> -->
+						<li><a href="./guide.html">租车指南</a></li>
+						<li style="margin-right: 20px;"><a href="./about_us.html">关于我们</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- banner -->
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+			<div class="item active">
+			  <img src="../static/images/car2.png" alt="..." >
+			  <div class="carousel-caption">
+				...
+			  </div>
+			</div>
+			<div class="item">
+			  <img src="../static/images/car1.png" alt="..." >
+			  <div class="carousel-caption">
+				...
+			  </div>
+			</div>
+			<div class="item">
+			  <img src="../static/images/car3.png" alt="...">
+			  <div class="carousel-caption">
+				...
+			  </div>
+			</div>
+			...
+		  </div>
+		   
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		  </a>
+		</div>
+		<!-- content -->
+		<div class="s1_content">
+			<div class="main clearfix green-panel">
+				<a href="./short.html" style="float: left;">
+					<h3>短租服务，灵活自如</h3>
+					<p>无论您是想约会、自驾游、踏青还是商务接待...</p>
+					<p>我们随时恭候您的光临，随取随还，灵活自如</p>
+				</a>
+				<a href="./long.html" style="float: right; background-color:  #4CAE4C;">
+					<h3>超值长租，实惠便捷</h3>
+					<p>如果您常租车，我们建议您可以尝试长租，按月起租，实惠方便</p>
+				</a>
+			</div>
+			<ul class="main clearfix data">
+				<li class="data-item">
+					<h3>
+						<span>10000+</span>
+					</h3>
+					<p>过万车型给精挑细选的您</p>
+					<p>一个惊喜</p>
+				</li>
+				<li class="data-item">
+					<h3>
+						<span>500,000+</span>
+					</h3>
+					<p>超过50w的平台注册车辆数</p>
+					<p>让您“淘”醉其中</p>
+				</li>
+				<li class="data-item">
+					<h3>
+						<span>5000,000+</span>
+					</h3>
+					<p>超过500w的平台注册用户</p>
+					<p>在享受轻松租车带来的出行便利</p>
+				</li>
+				<li class="data-item">
+					<h3>
+						<span>50+</span>
+					</h3>
+					<p>您可以在全国50多个主流城市</p>
+					<p>使用轻松租车</p>
+				</li>
+			</ul>
+			<ul class="xiang_mu">
+				<li class="image-panel-item">
+					<h3>自驾出游</h3>
+					<p>周末带着全家租一辆宽敞舒适大车,</p>
+					<p>如别克、途观、JEEP等自驾出游</p>
+					<p>游遍山川美景，游遍大江南北</p>
+					<p>收获满满的幸福。</p>
+				</li>
+				<li class="image-panel-item">
+					<h3>情侣约会</h3>
+					<p>周末你会和你的TA去哪呢，</p>
+					<p>踏青自驾是个不错的选择，</p>
+					<p>甲壳虫、mini、smart都会为你</p>
+					<p>平淡的周末添一抹亮色。</p>
+				</li>
+				<li class="image-panel-item">
+					<h3>商务接待</h3>
+					<p>我们有丰富的商务车型，</p>
+					<p>如奔驰、别克、宝马等，</p>
+					<p>帮助您接待业务往来的客户，</p>
+					<p>助您在商业洽谈中取得成功。</p>
+				</li>
+				<li class="image-panel-item">
+					<h3>体验个性车</h3>
+					<p>自己的车开腻了，</p>
+					<p>想要尝试体验更多新鲜感，</p>
+					<p>即刻预订保时捷911、特斯拉、牧马人、</p>
+					<p>大黄蜂等丰富车型满足你的小欲望吧。</p>
+				</li>
+			</ul>
+			<div class="server">
+				<div class="main clearfix server-box">
+					<div class="split"></div>
+					<h3 class="server-title">我们竭诚为您服务</h3>
+					<div class="server-item">
+						<i class="server-item-icon server-item-icon-1"></i>
+						<h4>我们负责取还车，您负责享受驾驶乐趣</h4>
+						<p>在您需要之时，我们一呼百应，送车还车专人上门</p>
+						<p>让您足不出户乐享其乘。（该服务在部分地区推出）</p>
+					</div>
+					<div class="server-item">
+						<i class="server-item-icon server-item-icon-2"></i>
+						<h4>高达255万保额，保障您的安全出行</h4>
+						<p> 为您提供高达255万的全方位保障, </p>
+						<p>消除您的后顾之忧。</p>
+					</div>
+					<div class="server-item">
+						<i class="server-item-icon server-item-icon-3"></i>
+						<h4>您可以用更低的价格租到心仪的车辆</h4>
+						<p>您选择的车辆全部来自凹凸严格审核把关的车主私车，</p>
+						<p>无论您希望经济出行，亦或是奢华体验，我们都用心满足您的要求。</p>
+					</div>
+					<div class="server-item">
+						<i class="server-item-icon server-item-icon-4"></i>
+						<h4>押金减免高达70%，让您租车更省钱</h4>
+						<p>我们建立严谨的信用机制，只需简单几步验证，</p>
+						<p>押金减免高达70%，世界那么大，随便您看看。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- foot -->
+		<div class="s1_footer">
+			<div class="s1_footer_top">
+				<div class="s1_content">
+					<div class="s1_top">
+							<span style="border-right: 1px solid gray; padding-right: 20px;"><a href="./guide.html" style="color: #b4b5ba; text-decoration: none;">租车指南</a></span>
+							<span><a href="./about_us.html" style="color: #b4b5ba;text-decoration: none;">关于我们</a></span>
+					</div>
+					<div class="clear"></div>
+					<div class="s1_lian_jie">
+						<h5 style="color: #b4b5ba;">热门城市入口</h5>
+						<ul>
+							<li><a href="#">上海租车</a></li>
+							<li><a href="#">广州租车</a></li>
+							<li><a href="#">北京租车</a></li>
+							<li><a href="#">深圳租车</a></li>
+							<li><a href="#">杭州租车</a></li>
+							<li><a href="#">成都租车</a></li>
+							<li><a href="#">重庆租车</a></li>
+							<li><a href="#">长沙租车</a></li>
+							<li><a href="#">苏州租车</a></li>
+							<li><a href="#">佛山租车</a></li>
+							<li><a href="#">合肥租车</a></li>
+							<li><a href="#">武汉租车</a></li>
+							<li><a href="#">厦门租车</a></li>
+							<li><a href="#">中山租车</a></li>
+							<li><a href="#">宝鸡租车</a></li>
+							<li><a href="#">安阳租车</a></li>
+							<li><a href="#">义务租车</a></li>
+							<li><a href="#">太仓租车</a></li>
+							<li><a href="#">成都租车</a></li>
+							<li><a href="#">德州租车</a></li>
+							<li><a href="#">乐山租车</a></li>
+							<li><a href="#">枣庄租车</a></li>
+							<li><a href="#">荆州租车</a></li>
+							<li><a href="#">大理租车</a></li>
+							<li><a href="#">淮安租车</a></li>
+							<li><a href="#">呼和浩特租车</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

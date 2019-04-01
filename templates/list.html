@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>列表页面</h1>
+		{% for info in infolist %}
+			<a href="/detail/{{info}}">{{info}}</a>
+		{% endfor %}
+		<a href="/">返回</a>
+	</body>
+</html>
